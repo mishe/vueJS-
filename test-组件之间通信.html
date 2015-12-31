@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test1</title>
+
+</head>
+<body>
+
+
+<div id="app">
+    <p>{{ message }}</p>
+    <input v-model="message">
+    <my-component :message="message" name="ssss"></my-component>
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+
+  Vue.component('my-component', {
+      template: '<p>{{message}} {{name}} aka {{alias}}</p>',
+      data: function(){
+          return {
+              alias: 'Heisenberg'
+          }
+      },
+      props: {
+          // 只检测类型
+          message: String,
+          // 检测类型 + 其它验证
+          name: {
+              type: String,
+              required: true
+          }
+      }
+  })
+   var s= new Vue({
+       el: '#app',
+       data: {
+           message: 'Hello Vue.js!',
+           firstName:'222'
+       }
+   });
+</script>
+</body>
+</html>

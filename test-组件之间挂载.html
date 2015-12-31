@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test1</title>
+
+</head>
+<body>
+
+
+<div id="app">
+    <p>{{ message }}</p>
+    <input v-model="message">
+    <div class="appChild class2"></div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+   var s= new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    });
+    setTimeout(function(){
+        s.message='111';
+    },3000);
+
+   var Profile = Vue.extend({
+       template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+       data: function(){
+           return {
+               firstName: 'Walter',
+               lastName: 'White',
+               alias: 'Heisenberg'
+           }
+       },
+       el:function(){
+         return '#app'
+       }
+   })
+   // 创建一个 Profile 实例
+   var profile = new Profile();
+   // 挂载到元素上
+   profile.$mount('.appChild')
+</script>
+</body>
+</html>
