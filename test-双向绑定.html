@@ -12,12 +12,15 @@
 </div>
 <script src="vue.js"></script>
 <script>
-    new Vue({
+   var s= new Vue({
         el: '#app',
         data: {
             message: 'Hello Vue.js!'
         }
-    })
+    });
+    setTimeout(function(){
+        s.message='111';
+    },3000);
 </script>
 </body>
 </html>

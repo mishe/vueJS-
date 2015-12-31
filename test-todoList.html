@@ -15,6 +15,7 @@
         </li>
     </ul>
     <button v-on:click="submit">提交列表</button>
+    <button v-on:click="reset">重置列表</button>
 </div>
 
 <script src="vue.js"></script>
@@ -40,7 +41,11 @@
             },
             submit:function(){
                 alert(JSON.stringify(this.todos))
+            },
+            reset:function(){
+                this.todos=[{ text: 'Add some todos' }]
             }
+
         }
     })
 </script>

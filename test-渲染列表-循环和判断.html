@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test1</title>
+
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="todo in todos" v-if="todo.show">
+            {{ todo.text }}
+        </li>
+    </ul>
+    <button v-on:click="showAll">显示所有</button>
+    <button v-on:click="unShow">全部不显示</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            todos: [
+                {show:true, text: 'Learn JavaScript' },
+                {show:true, text: 'Learn Vue.js' },
+                {show:false, text: 'Build Something Awesome' }
+            ]
+        },
+        methods:{
+            showAll:function(){
+                this.todos.forEach(function(n){
+                    n.show=true;
+                })
+            },
+            unShow:function(){
+                this.todos.forEach(function(n){
+                    n.show=false;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
